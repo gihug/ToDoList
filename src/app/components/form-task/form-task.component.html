@@ -1,16 +1,44 @@
 <form class="form-add">
-  <input type="text" placeholder="Add new task..." />
-  <div class="name-input"><span>Description</span></div>
+  <input
+    id="title"
+    type="text"
+    placeholder="Add new task..."
+    [(ngModel)]="task.title"
+    name="title"
+    #title="ngModel"
+    required
+  />
+  <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert">
+    <div *ngIf="title.errors?.required">Name is required.</div>
+  </div>
 
-  <textarea rows="4"></textarea>
+  <div class="name-input">
+    <span>Description</span>
+  </div>
+
+  <textarea
+    rows="4"
+    [(ngModel)]="task.description"
+    name="description"
+  ></textarea>
   <div class="time-prio">
     <div class="time-prio-item">
       <div class="name-input"><span>Due Date</span></div>
-      <input type="date" />
+      <input
+        type="date"
+        [min]="currentDate"
+        [(ngModel)]="task.date"
+        name="date"
+      />
     </div>
     <div class="time-prio-item">
       <div class="name-input"><span>Piority</span></div>
-      <select name="select" id="priority">
+      <select
+        name="select"
+        id="priority"
+        [(ngModel)]="task.piority"
+        name="piority"
+      >
         <option value="Low">Low</option>
         <option value="Normal">Normal</option>
         <option value="High">High</option>
@@ -18,6 +46,8 @@
     </div>
   </div>
   <div class="button-add">
-    <button>Add</button>
+    <button (click)="onSubmit()" [disabled]="title.errors?.required">
+      {{ isUpdate ? "Update" : "Add" }}
+    </button>
   </div>
 </form>

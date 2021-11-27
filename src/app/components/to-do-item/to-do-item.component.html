@@ -7,7 +7,7 @@
         id="checkbox"
         (change)="isBulk = !isBulk"
       />
-      <span>Text</span>
+      <span>{{ data.title }}</span>
     </div>
     <div class="button">
       <button (click)="isDetail = !isDetail">Detail</button>
@@ -24,6 +24,6 @@
     </div>
   </div>
   <div class="detail" *ngIf="isDetail">
-    <app-form-task></app-form-task>
+    <app-form-task [isUpdate]="true"></app-form-task>
   </div>
 </div>
