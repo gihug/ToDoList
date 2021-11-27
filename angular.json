@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "todo-list"
+    }
+  },
+  "defaultProject": "todo-list",
+  "cli": {
+    "analytics": "11d442cd-dee8-49bf-aaeb-dc7338d7ad10"
+  }
 }

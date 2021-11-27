@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="info">
+    <div class="work">
+      <input
+        type="checkbox"
+        name="checkbox"
+        id="checkbox"
+        (change)="isBulk = !isBulk"
+      />
+      <span>Text</span>
+    </div>
+    <div class="button">
+      <button (click)="isDetail = !isDetail">Detail</button>
+      <button>Remove</button>
+    </div>
+  </div>
+  <div class="info bulk" *ngIf="isBulk">
+    <div class="bulk-action">
+      <span>Bulk Action</span>
+    </div>
+    <div class="button">
+      <button>Done</button>
+      <button (click)="isBulk = !isBulk">Remove</button>
+    </div>
+  </div>
+  <div class="detail" *ngIf="isDetail">
+    <app-form-task></app-form-task>
+  </div>
+</div>

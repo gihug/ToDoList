@@ -1,0 +1,64 @@
+.container {
+  border: 1px solid #000;
+  margin: 16px 0;
+}
+
+.info {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info .work {
+}
+
+.info .work input {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 18px;
+}
+
+.info .work span {
+  font-size: 1.6rem;
+  position: relative;
+  bottom: 3px;
+  opacity: 0.7;
+}
+
+.info .button button {
+  margin-right: 1.8rem;
+  height: 2.8rem;
+  width: 9.5rem;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.info .button button:hover {
+  cursor: pointer;
+}
+
+.info .button button:first-child {
+  background-color: #00bcd4;
+}
+
+.info .button button:last-child {
+  background-color: #d9534f;
+}
+
+.detail {
+  border-top: 1px solid #000;
+  padding: 2.4rem;
+}
+
+.bulk {
+  border-top: 1px solid #000;
+  background-color: #ccc;
+}
+
+.info .bulk-action span {
+  font-size: 1.6rem;
+  opacity: 0.7;
+  margin: 0 18px;
+}

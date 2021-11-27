@@ -1,0 +1,58 @@
+.form-add {
+  width: 100%;
+}
+
+.form-add input {
+  width: 100%;
+  height: 3.2rem;
+  padding-left: 1rem;
+}
+
+.form-add .name-input {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 3.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-add textarea {
+  width: 100%;
+  resize: vertical;
+}
+
+.form-add select {
+  width: 100%;
+  height: 3.2rem;
+}
+
+.time-prio {
+  display: flex;
+  flex-direction: row;
+}
+
+.time-prio .time-prio-item {
+  width: 50%;
+}
+
+.time-prio .time-prio-item:first-child {
+  margin-right: 1.2rem;
+}
+
+.time-prio .time-prio-item:last-child {
+  margin-left: 1.2rem;
+}
+
+.button-add {
+  margin-top: 64px;
+  /* margin-bottom: 60px; */
+}
+
+.button-add button {
+  width: 100%;
+  height: 32px;
+  background-color: #5cb85c;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.4rem;
+}
