@@ -1,5 +1,5 @@
 import { Task } from './../../services/interface/interface';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-to-do-item',
@@ -8,10 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ToDoItemComponent implements OnInit {
   @Input('data') data: Task;
+  @Output('clickCheckbox') clickCheckbox = new EventEmitter();
   isDetail = false;
-  isBulk = false;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onClickCheckbox() {
+    this.clickCheckbox.emit(this.data);
+  }
 }

@@ -5,7 +5,7 @@
         type="checkbox"
         name="checkbox"
         id="checkbox"
-        (change)="isBulk = !isBulk"
+        (change)="data.checked = !data.checked; onClickCheckbox()"
       />
       <span>{{ data.title }}</span>
     </div>
@@ -14,16 +14,7 @@
       <button>Remove</button>
     </div>
   </div>
-  <div class="info bulk" *ngIf="isBulk">
-    <div class="bulk-action">
-      <span>Bulk Action</span>
-    </div>
-    <div class="button">
-      <button>Done</button>
-      <button (click)="isBulk = !isBulk">Remove</button>
-    </div>
-  </div>
   <div class="detail" *ngIf="isDetail">
-    <app-form-task [isUpdate]="true"></app-form-task>
+    <app-form-task [isUpdate]="true" [task]="data"></app-form-task>
   </div>
 </div>

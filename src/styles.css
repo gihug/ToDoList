@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 * {
   box-sizing: inherit;
-  overflow: hidden;
 }
 
 html {
@@ -10,7 +9,6 @@ html {
   line-height: 1.6rem;
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 html,

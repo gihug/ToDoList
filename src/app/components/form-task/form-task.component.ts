@@ -1,3 +1,4 @@
+import { Utils } from './../../services/utils/utils';
 import { Constant } from './../../services/constant/constant';
 import { Task } from './../../services/interface/interface';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
@@ -9,6 +10,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class FormTaskComponent implements OnInit {
   @Input('task') task: Task = {
+    id: 0,
+    checked: false,
     title: '',
     description: '',
     date: Constant.CURRENT_DATE,
@@ -21,8 +24,25 @@ export class FormTaskComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
+  dataLocal = [];
   onSubmit() {
-    this.clickSubmit.emit(this.task);
+    if (this.isUpdate) {
+      this.dataLocal = Utils.getListToDo();
+      let indexValueUpdate = this.dataLocal.findIndex(
+        (value) => value.id === this.task.id
+      );
+      this.dataLocal[indexValueUpdate] = this.task;
+      Utils.setListToDo(this.dataLocal);
+    } else {
+      this.clickSubmit.emit(this.task);
+      this.task = {
+        id: 0,
+        checked: false,
+        title: '',
+        description: '',
+        date: Constant.CURRENT_DATE,
+        piority: 'Normal',
+      };
+    }
   }
 }

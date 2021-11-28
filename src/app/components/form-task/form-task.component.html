@@ -8,7 +8,10 @@
     #title="ngModel"
     required
   />
-  <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert">
+  <div
+    *ngIf="title.invalid && (title.dirty || title.touched) && task.id != 0"
+    class="alert"
+  >
     <div *ngIf="title.errors?.required">Name is required.</div>
   </div>
 

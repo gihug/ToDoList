@@ -10,9 +10,6 @@
   justify-content: space-between;
 }
 
-.info .work {
-}
-
 .info .work input {
   width: 2rem;
   height: 2rem;
@@ -61,4 +58,9 @@
   font-size: 1.6rem;
   opacity: 0.7;
   margin: 0 18px;
+}
+
+.button button:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }

@@ -13,7 +13,9 @@
 
 .right-container {
   width: 60%;
-  padding: 0 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .title {
@@ -30,6 +32,10 @@
 
 /* =========================== TO DO LIST ========================= */
 
+.list-item-container {
+  padding: 0 4.5rem;
+}
+
 .search-input {
   width: 100%;
 }
@@ -40,5 +46,43 @@
   padding-left: 1rem;
 }
 
-.list-item {
+.bulk {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #000;
+  background-color: #ccc;
+}
+
+.bulk .button button {
+  margin-right: 1.8rem;
+  height: 2.8rem;
+  width: 9.5rem;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.bulk .button button:hover {
+  cursor: pointer;
+}
+
+.bulk .button button:first-child {
+  background-color: #00bcd4;
+}
+
+.bulk .button button:last-child {
+  background-color: #d9534f;
+}
+
+.bulk-action span {
+  font-size: 1.6rem;
+  opacity: 0.7;
+  margin: 0 18px;
+}
+
+.button button:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }

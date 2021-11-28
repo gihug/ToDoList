@@ -4,12 +4,32 @@
     <app-form-task (clickSubmit)="clickSubmit($event)"></app-form-task>
   </div>
   <div class="right-container">
-    <div class="title"><span>To Do List</span></div>
-    <div class="search-input">
-      <input type="text" placeholder="Search..." />
+    <div class="list-item-container">
+      <div class="title"><span>To Do List</span></div>
+      <div class="search-input">
+        <input
+          type="text"
+          placeholder="Search..."
+          (input)="onSearchData($event.target.value)"
+        />
+      </div>
+      <div class="list-item" *ngFor="let item of listToDo">
+        <app-to-do-item
+          [data]="item"
+          (clickCheckbox)="clickCheckbox($event)"
+        ></app-to-do-item>
+      </div>
     </div>
-    <div class="list-item" *ngFor="let item of listToDo">
-      <app-to-do-item [data]="item"></app-to-do-item>
+    <div class="option-bulk" *ngIf="isHasChecked">
+      <div class="bulk">
+        <div class="bulk-action">
+          <span>Bulk Action:</span>
+        </div>
+        <div class="button">
+          <button>Done</button>
+          <button (click)="clickRemoveBulk()">Remove</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

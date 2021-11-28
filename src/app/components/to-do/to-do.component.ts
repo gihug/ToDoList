@@ -1,6 +1,7 @@
+import { Utils } from './../../services/utils/utils';
 import { Constant } from './../../services/constant/constant';
 import { Task } from './../../services/interface/interface';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-to-do',
@@ -12,8 +13,11 @@ export class ToDoComponent implements OnInit {
 
   listToDo: Task[] = [];
   dataLocal;
+  id;
+  isHasChecked = false;
   ngOnInit(): void {
-    this.dataLocal = localStorage.getItem('listToDo');
+    this.dataLocal = Utils.getListToDo();
+    this.id = Utils.getIDCreate();
     if (this.dataLocal) {
       this.listToDo = this.dataLocal;
     }
@@ -21,19 +25,43 @@ export class ToDoComponent implements OnInit {
 
   clickSubmit(event) {
     console.log(event);
+    this.id++;
     let value = {
+      id: this.id,
+      checked: false,
       title: event.title,
       date: event.date,
       description: event.description,
       piority: event.piority,
     };
     this.listToDo.push(value);
-    // this.dataLocal.push(event);
-    // this.setItemLocal(this.dataLocal);
-    console.log(this.listToDo);
+    this.sortList();
+    Utils.setListToDo(this.listToDo);
+    Utils.setIDCreate(this.id);
   }
 
-  setItemLocal(value) {
-    localStorage.setItem('listToDo', value);
+  clickCheckbox(event) {
+    this.isHasChecked = event.checked ? true : false;
+  }
+
+  clickRemoveBulk() {
+    this.isHasChecked = false;
+    this.listToDo = this.listToDo.filter((value) => {
+      return value.checked == false;
+    });
+    Utils.setListToDo(this.listToDo);
+  }
+
+  onSearchData(event) {
+    const filterValue = event.toLowerCase();
+    this.listToDo = this.dataLocal.filter((value) => {
+      return value.title.toLowerCase().includes(filterValue);
+    });
+  }
+
+  sortList() {
+    this.listToDo.sort((a, b) => {
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
   }
 }
