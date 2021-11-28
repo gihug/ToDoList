@@ -59,6 +59,14 @@ export class ToDoComponent implements OnInit {
     });
   }
 
+  clickRemove(event) {
+    let indexValueRemove = this.listToDo.findIndex(
+      (value) => value.id === event.id
+    );
+    this.listToDo.splice(indexValueRemove, 1);
+    Utils.setListToDo(this.listToDo);
+  }
+
   sortList() {
     this.listToDo.sort((a, b) => {
       return new Date(a.date).getTime() - new Date(b.date).getTime();

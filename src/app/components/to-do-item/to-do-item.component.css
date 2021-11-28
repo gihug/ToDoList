@@ -10,6 +10,13 @@
   justify-content: space-between;
 }
 
+.work {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
 .info .work input {
   width: 2rem;
   height: 2rem;
@@ -60,7 +67,92 @@
   margin: 0 18px;
 }
 
+.button {
+  min-width: 226px;
+}
+
 .button button:hover {
   cursor: pointer;
   opacity: 0.7;
+}
+
+@media (max-width: 400px) {
+  .info {
+    display: block;
+    padding: 8px;
+  }
+
+  .work {
+    width: 100%;
+  }
+
+  .button {
+    width: 100px;
+    flex-direction: row;
+  }
+
+  .info .work input {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 8px;
+  }
+
+  .info .work span {
+    font-size: 1.4rem;
+  }
+
+  .info .button button {
+    margin-right: 0;
+    height: 1.6rem;
+    width: 6.5rem;
+    margin-left: 8px;
+  }
+}
+
+/* Mobile */
+@media (min-width: 400px) and (max-width: 739px) {
+  .work {
+    width: 80%;
+  }
+
+  .info .work input {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 5px;
+  }
+
+  .button {
+    width: 80px;
+    min-width: 0;
+  }
+
+  .info .button button {
+    margin-right: 0;
+    height: 1.6rem;
+    width: 6.5rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+  .work {
+    width: 80%;
+  }
+
+  .info .work input {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 5px;
+  }
+
+  .button {
+    width: 80px;
+    min-width: 0;
+  }
+
+  .info .button button {
+    margin-right: 0;
+    height: 1.6rem;
+    width: 6.5rem;
+  }
 }

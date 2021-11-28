@@ -86,3 +86,33 @@
   cursor: pointer;
   opacity: 0.7;
 }
+
+@media (max-width: 400px) {
+  .button {
+    width: 100px;
+    flex-direction: row;
+  }
+
+  .bulk .button button {
+    margin-right: 0;
+    height: 1.6rem;
+    width: 6.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 739px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-container {
+    border-right: none;
+    width: 100%;
+    border-bottom: 1px solid #000;
+  }
+
+  .right-container {
+    width: 100%;
+  }
+}

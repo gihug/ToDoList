@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ToDoItemComponent implements OnInit {
   @Input('data') data: Task;
   @Output('clickCheckbox') clickCheckbox = new EventEmitter();
+  @Output('clickRemove') clickRemove = new EventEmitter();
   isDetail = false;
 
   constructor() {}
@@ -17,5 +18,9 @@ export class ToDoItemComponent implements OnInit {
 
   onClickCheckbox() {
     this.clickCheckbox.emit(this.data);
+  }
+
+  onClickRemove() {
+    this.clickRemove.emit(this.data);
   }
 }
