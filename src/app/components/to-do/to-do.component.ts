@@ -53,6 +53,7 @@ export class ToDoComponent implements OnInit {
   }
 
   onSearchData(event) {
+    this.dataLocal = Utils.getListToDo();
     const filterValue = event.toLowerCase();
     this.listToDo = this.dataLocal.filter((value) => {
       return value.title.toLowerCase().includes(filterValue);
